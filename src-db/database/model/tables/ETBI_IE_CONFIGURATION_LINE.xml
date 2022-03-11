@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-  <database name="TABLE ETBI_CONFIGURATION_LINE">
-    <table name="ETBI_CONFIGURATION_LINE" primaryKey="ETBI_CONF_KEY">
-      <column name="ETBI_CONFIGURATION_LINE_ID" primaryKey="true" required="true" type="VARCHAR" size="32" autoIncrement="false">
+  <database name="TABLE ETBI_IE_CONFIGURATION_LINE">
+    <table name="ETBI_IE_CONFIGURATION_LINE" primaryKey="ETBI_CONF_KEY">
+      <column name="ETBI_IE_CONFIGURATION_LINE_ID" primaryKey="true" required="true" type="VARCHAR" size="32" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
@@ -33,7 +33,7 @@
         <default/>
         <onCreateDefault/>
       </column>
-      <column name="ETBI_CONFIGURATION_ID" primaryKey="false" required="true" type="VARCHAR" size="32" autoIncrement="false">
+      <column name="ETBI_IE_CONFIGURATION_ID" primaryKey="false" required="true" type="VARCHAR" size="32" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
@@ -63,8 +63,8 @@
       <foreign-key foreignTable="AD_ORG" name="ETBI_CONF_ORG">
         <reference local="AD_ORG_ID" foreign="AD_ORG_ID"/>
       </foreign-key>
-      <foreign-key foreignTable="ETBI_CONFIGURATION" name="ETBI_LINE_CONF">
-        <reference local="ETBI_CONFIGURATION_ID" foreign="ETBI_CONFIGURATION_ID"/>
+      <foreign-key foreignTable="ETBI_IE_CONFIGURATION" name="ETBI_IE_LINE_CONF">
+        <reference local="ETBI_IE_CONFIGURATION_ID" foreign="ETBI_IE_CONFIGURATION_ID"/>
       </foreign-key>
       <foreign-key foreignTable="C_GLITEM" name="ETBI_LINE_GLITEM">
         <reference local="C_GLITEM_ID" foreign="C_GLITEM_ID"/>

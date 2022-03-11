@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-  <database name="TABLE ETBI_CONFIGURATION">
-    <table name="ETBI_CONFIGURATION" primaryKey="ETBI_CONFIGURATION_KEY">
-      <column name="ETBI_CONFIGURATION_ID" primaryKey="true" required="true" type="VARCHAR" size="32" autoIncrement="false">
+  <database name="TABLE ETBI_IE_CONFIGURATION">
+    <table name="ETBI_IE_CONFIGURATION" primaryKey="ETBI_IE_CONFIGURATION_KEY">
+      <column name="ETBI_IE_CONFIGURATION_ID" primaryKey="true" required="true" type="VARCHAR" size="32" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
@@ -53,10 +53,10 @@
         <default><![CDATA[N]]></default>
         <onCreateDefault/>
       </column>
-      <foreign-key foreignTable="AD_CLIENT" name="ETBI_CONFIGURATION_AD_CLIENT">
+      <foreign-key foreignTable="AD_CLIENT" name="ETBI_IE_CONFIGURATION_CLI">
         <reference local="AD_CLIENT_ID" foreign="AD_CLIENT_ID"/>
       </foreign-key>
-      <foreign-key foreignTable="AD_ORG" name="ETBI_CONFIGURATION_AD_ORG">
+      <foreign-key foreignTable="AD_ORG" name="ETBI_IE_CONFIGURATION_ORG">
         <reference local="AD_ORG_ID" foreign="AD_ORG_ID"/>
       </foreign-key>
     </table>
