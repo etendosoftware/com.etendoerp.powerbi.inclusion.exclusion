@@ -45,14 +45,29 @@
         <default/>
         <onCreateDefault/>
       </column>
-      <column name="TYPE" primaryKey="false" required="true" type="VARCHAR" size="60" autoIncrement="false">
+      <column name="TYPE" primaryKey="false" required="false" type="VARCHAR" size="60" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
-      <column name="ISEXCLUSIVE" primaryKey="false" required="true" type="CHAR" size="1" autoIncrement="false">
-        <default><![CDATA[N]]></default>
+      <column name="HASNUMBER" primaryKey="false" required="true" type="CHAR" size="1" autoIncrement="false">
+        <default><![CDATA[Y]]></default>
         <onCreateDefault/>
       </column>
+      <column name="HASSTRING" primaryKey="false" required="true" type="CHAR" size="1" autoIncrement="false">
+        <default><![CDATA[Y]]></default>
+        <onCreateDefault/>
+      </column>
+      <column name="HASYESNO" primaryKey="false" required="true" type="CHAR" size="1" autoIncrement="false">
+        <default><![CDATA[Y]]></default>
+        <onCreateDefault/>
+      </column>
+      <column name="ETBI_IE_CONFIG_CAT_ID" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <foreign-key foreignTable="ETBI_IE_CONFIG_CAT" name="ETBI_IE_CONFIG_CAT_ID_FK">
+        <reference local="ETBI_IE_CONFIG_CAT_ID" foreign="ETBI_IE_CONFIG_CAT_ID"/>
+      </foreign-key>
       <foreign-key foreignTable="AD_CLIENT" name="ETBI_IE_CONFIGURATION_CLI">
         <reference local="AD_CLIENT_ID" foreign="AD_CLIENT_ID"/>
       </foreign-key>
