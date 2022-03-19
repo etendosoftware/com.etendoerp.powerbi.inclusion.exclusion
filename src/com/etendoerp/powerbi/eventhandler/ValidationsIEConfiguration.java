@@ -1,11 +1,13 @@
 package com.etendoerp.powerbi.eventhandler;
 
 import com.etendoerp.powerbi.data.IEConfiguration;
+import com.etendoerp.powerbi.util.ETBIUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.openbravo.base.exception.OBException;
 import org.openbravo.base.model.Entity;
 import org.openbravo.base.model.ModelProvider;
+import org.openbravo.base.model.Property;
 import org.openbravo.client.kernel.event.EntityNewEvent;
 import org.openbravo.client.kernel.event.EntityPersistenceEventObserver;
 import org.openbravo.client.kernel.event.EntityUpdateEvent;
@@ -16,7 +18,6 @@ import org.openbravo.service.db.DalConnectionProvider;
 
 import javax.enterprise.event.Observes;
 
-//mensaje etbi_config_need_checks
 public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
   private static Entity[] entities = {
       ModelProvider.getInstance().getEntity(IEConfiguration.ENTITY_NAME) };
@@ -38,7 +39,17 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
         config.getType()) && !config.isHasstring() && !config.isHasnumber() && !config.isHasyesno()) {
       throw new OBException(OBMessageUtils.messageBD("etbi_config_need_checks"));
     }
+    //cannot change the type of the configuration if exists lines.
+    Property propType = event.getTargetInstance()
+        .getEntity()
+        .getProperty(IEConfiguration.PROPERTY_TYPE);
+    String prevType = (String) event.getPreviousState(propType);
+    String currType = (String) event.getCurrentState(propType);
+    if (!StringUtils.equalsIgnoreCase(prevType, currType) && ETBIUtils.configHasLines(config)) {
+      throw new OBException(OBMessageUtils.messageBD("etbi_noTypeChangeWithLines"));
+    }
   }
+
   public void onSave(@Observes EntityNewEvent event) {
       if (!isValidEvent(event)) {
         return;

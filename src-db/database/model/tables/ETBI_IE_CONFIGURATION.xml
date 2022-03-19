@@ -50,15 +50,15 @@
         <onCreateDefault/>
       </column>
       <column name="HASNUMBER" primaryKey="false" required="true" type="CHAR" size="1" autoIncrement="false">
-        <default><![CDATA[Y]]></default>
+        <default><![CDATA[N]]></default>
         <onCreateDefault/>
       </column>
       <column name="HASSTRING" primaryKey="false" required="true" type="CHAR" size="1" autoIncrement="false">
-        <default><![CDATA[Y]]></default>
+        <default><![CDATA[N]]></default>
         <onCreateDefault/>
       </column>
       <column name="HASYESNO" primaryKey="false" required="true" type="CHAR" size="1" autoIncrement="false">
-        <default><![CDATA[Y]]></default>
+        <default><![CDATA[N]]></default>
         <onCreateDefault/>
       </column>
       <column name="ETBI_IE_CONFIG_CAT_ID" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
