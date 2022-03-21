@@ -2,6 +2,7 @@ package com.etendoerp.powerbi.eventhandler;
 
 import com.etendoerp.powerbi.data.IEConfigurationLine;
 import com.etendoerp.powerbi.util.ETBIUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.hibernate.criterion.Restrictions;
 import org.openbravo.base.exception.OBException;
@@ -19,6 +20,7 @@ import org.openbravo.service.db.DalConnectionProvider;
 import javax.enterprise.event.Observes;
 
 public class ValidationsIEConfigurationLines extends EntityPersistenceEventObserver {
+  public static final String CONFIGURATION_TYPE_DOCTYPE = "D";
   private static Entity[] entities = {
       ModelProvider.getInstance().getEntity(IEConfigurationLine.ENTITY_NAME) };
   protected Logger logger = Logger.getLogger(this.getClass());
@@ -33,6 +35,8 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
     if (!isValidEvent(event)) {
       return;
     }
+    //if is not configuration of type "doctype", deletes the default doctype.
+    fixDoctype((IEConfigurationLine) event.getTargetInstance());
     //the Entity cannot be null
     checkEntity((IEConfigurationLine) event.getTargetInstance());
     //Check for repeated lines
@@ -43,10 +47,19 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
     if (!isValidEvent(event)) {
       return;
     }
+    //if is not configuration of type "doctype", deletes the default doctype.
+    fixDoctype((IEConfigurationLine) event.getTargetInstance());
     //the Entity cannot be null
     checkEntity((IEConfigurationLine) event.getTargetInstance());
     //Check for repeated lines
     checkRepeatedLines((IEConfigurationLine) event.getTargetInstance());
+  }
+
+  private void fixDoctype(IEConfigurationLine targetInstance) {
+    if (targetInstance.getEtbiIeConfiguration().getType() == null || !StringUtils.equalsIgnoreCase(
+        targetInstance.getEtbiIeConfiguration().getType(), CONFIGURATION_TYPE_DOCTYPE)) {
+      targetInstance.setDocumentType(null);
+    }
   }
 
   private void checkRepeatedLines(IEConfigurationLine line) {
@@ -67,7 +80,7 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
       case "P":
         linesCriteria.add(Restrictions.eq(IEConfigurationLine.PROPERTY_PRODUCT, line.getProduct()));
         break;
-      case "D":
+      case CONFIGURATION_TYPE_DOCTYPE:
         linesCriteria.add(Restrictions.eq(IEConfigurationLine.PROPERTY_DOCUMENTTYPE, line.getDocumentType()));
         break;
     }
@@ -95,7 +108,7 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
       case "P":
         error = line.getProduct() == null;
         break;
-      case "D":
+      case CONFIGURATION_TYPE_DOCTYPE:
         error = line.getDocumentType() == null;
         break;
     }

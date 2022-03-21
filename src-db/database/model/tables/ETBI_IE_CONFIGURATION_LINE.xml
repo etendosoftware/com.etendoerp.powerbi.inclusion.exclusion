@@ -65,7 +65,7 @@
         <default/>
         <onCreateDefault/>
       </column>
-      <column name="C_DOCTYPE_ID" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
+      <column name="DOCTYPE" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
@@ -73,7 +73,7 @@
         <reference local="AD_CLIENT_ID" foreign="AD_CLIENT_ID"/>
       </foreign-key>
       <foreign-key foreignTable="C_DOCTYPE" name="ETBI_CONF_LINE_DOCTYPE">
-        <reference local="C_DOCTYPE_ID" foreign="C_DOCTYPE_ID"/>
+        <reference local="DOCTYPE" foreign="C_DOCTYPE_ID"/>
       </foreign-key>
       <foreign-key foreignTable="AD_ORG" name="ETBI_CONF_ORG">
         <reference local="AD_ORG_ID" foreign="AD_ORG_ID"/>

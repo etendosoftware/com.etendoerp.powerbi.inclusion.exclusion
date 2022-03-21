@@ -1,0 +1,4 @@
+<?xml version="1.0"?>
+  <database name="VIEW ETBI_IE_CONFIGURATIONS">
+    <view name="ETBI_IE_CONFIGURATIONS"><![CDATA[SELECT con.searchkey, con.type, COALESCE(conline.doctype, conline.m_product_category_id, conline.m_product_id, conline.c_glitem_id) AS record_id, conline.number, conline.string, conline.yesno FROM etbi_ie_configuration con JOIN etbi_ie_configuration_line conline ON con.etbi_ie_configuration_id = conline.etbi_ie_configuration_id]]></view>
+  </database>
