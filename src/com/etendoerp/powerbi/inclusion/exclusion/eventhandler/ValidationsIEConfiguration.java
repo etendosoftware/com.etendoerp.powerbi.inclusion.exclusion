@@ -1,7 +1,7 @@
-package com.etendoerp.powerbi.eventhandler;
+package com.etendoerp.powerbi.inclusion.exclusion.eventhandler;
 
-import com.etendoerp.powerbi.data.IEConfiguration;
-import com.etendoerp.powerbi.util.ETBIUtils;
+import com.etendoerp.powerbi.inclusion.exclusion.data.IEConfiguration;
+import com.etendoerp.powerbi.inclusion.exclusion.util.ETBIUtils;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.openbravo.base.exception.OBException;
@@ -37,7 +37,7 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
     IEConfiguration config = (IEConfiguration) event.getTargetInstance();
     if (StringUtils.isEmpty(
         config.getType()) && !config.isHasstring() && !config.isHasnumber() && !config.isHasyesno()) {
-      throw new OBException(OBMessageUtils.messageBD("etbi_config_need_checks"));
+      throw new OBException(OBMessageUtils.messageBD("etbiie_config_need_checks"));
     }
     //cannot change the type of the configuration if exists lines.
     Property propType = event.getTargetInstance()
@@ -46,7 +46,7 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
     String prevType = (String) event.getPreviousState(propType);
     String currType = (String) event.getCurrentState(propType);
     if (!StringUtils.equalsIgnoreCase(prevType, currType) && ETBIUtils.configHasLines(config)) {
-      throw new OBException(OBMessageUtils.messageBD("etbi_noTypeChangeWithLines"));
+      throw new OBException(OBMessageUtils.messageBD("etbiie_noTypeChangeWithLines"));
     }
   }
 
@@ -58,7 +58,7 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
       IEConfiguration config = (IEConfiguration) event.getTargetInstance();
       if (StringUtils.isEmpty(
           config.getType()) && !config.isHasstring() && !config.isHasnumber() && !config.isHasyesno()) {
-        throw new OBException(OBMessageUtils.messageBD("etbi_config_need_checks"));
+        throw new OBException(OBMessageUtils.messageBD("etbiie_config_need_checks"));
       }
     }
 

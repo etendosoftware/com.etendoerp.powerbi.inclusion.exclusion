@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-  <database name="TABLE ETBI_IE_CONFIGURATION_LINE">
-    <table name="ETBI_IE_CONFIGURATION_LINE" primaryKey="ETBI_CONF_KEY">
-      <column name="ETBI_IE_CONFIGURATION_LINE_ID" primaryKey="true" required="true" type="VARCHAR" size="32" autoIncrement="false">
+  <database name="TABLE ETBIIE_IE_CONFIG_LINE">
+    <table name="ETBIIE_IE_CONFIG_LINE" primaryKey="ETBIIE_CONF_KEY">
+      <column name="ETBIIE_IE_CONFIG_LINE_ID" primaryKey="true" required="true" type="VARCHAR" size="32" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
@@ -33,7 +33,7 @@
         <default/>
         <onCreateDefault/>
       </column>
-      <column name="ETBI_IE_CONFIGURATION_ID" primaryKey="false" required="true" type="VARCHAR" size="32" autoIncrement="false">
+      <column name="ETBIIE_IE_CONFIGURATION_ID" primaryKey="false" required="true" type="VARCHAR" size="32" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
@@ -69,25 +69,25 @@
         <default/>
         <onCreateDefault/>
       </column>
-      <foreign-key foreignTable="AD_CLIENT" name="ETBI_CONF_CLIENT">
+      <foreign-key foreignTable="AD_CLIENT" name="ETBIIE_CONF_CLIENT">
         <reference local="AD_CLIENT_ID" foreign="AD_CLIENT_ID"/>
       </foreign-key>
-      <foreign-key foreignTable="C_DOCTYPE" name="ETBI_CONF_LINE_DOCTYPE">
+      <foreign-key foreignTable="C_DOCTYPE" name="ETBIIE_CONF_LINE_DOCTYPE">
         <reference local="DOCTYPE" foreign="C_DOCTYPE_ID"/>
       </foreign-key>
-      <foreign-key foreignTable="AD_ORG" name="ETBI_CONF_ORG">
+      <foreign-key foreignTable="AD_ORG" name="ETBIIE_CONF_ORG">
         <reference local="AD_ORG_ID" foreign="AD_ORG_ID"/>
       </foreign-key>
-      <foreign-key foreignTable="ETBI_IE_CONFIGURATION" name="ETBI_IE_LINE_CONF">
-        <reference local="ETBI_IE_CONFIGURATION_ID" foreign="ETBI_IE_CONFIGURATION_ID"/>
+      <foreign-key foreignTable="ETBIIE_IE_CONFIGURATION" name="ETBIIE_IE_LINE_CONF">
+        <reference local="ETBIIE_IE_CONFIGURATION_ID" foreign="ETBIIE_IE_CONFIGURATION_ID"/>
       </foreign-key>
-      <foreign-key foreignTable="C_GLITEM" name="ETBI_LINE_GLITEM">
+      <foreign-key foreignTable="C_GLITEM" name="ETBIIE_LINE_GLITEM">
         <reference local="C_GLITEM_ID" foreign="C_GLITEM_ID"/>
       </foreign-key>
-      <foreign-key foreignTable="M_PRODUCT_CATEGORY" name="ETBI_LINE_PROCATE">
+      <foreign-key foreignTable="M_PRODUCT_CATEGORY" name="ETBIIE_LINE_PROCATE">
         <reference local="M_PRODUCT_CATEGORY_ID" foreign="M_PRODUCT_CATEGORY_ID"/>
       </foreign-key>
-      <foreign-key foreignTable="M_PRODUCT" name="ETBI_LINE_PRODUCT">
+      <foreign-key foreignTable="M_PRODUCT" name="ETBIIE_LINE_PRODUCT">
         <reference local="M_PRODUCT_ID" foreign="M_PRODUCT_ID"/>
       </foreign-key>
     </table>
