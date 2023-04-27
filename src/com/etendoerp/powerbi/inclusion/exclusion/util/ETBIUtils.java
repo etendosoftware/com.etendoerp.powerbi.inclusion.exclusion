@@ -3,9 +3,12 @@ package com.etendoerp.powerbi.inclusion.exclusion.util;
 import com.etendoerp.powerbi.inclusion.exclusion.data.IEConfiguration;
 import com.etendoerp.powerbi.inclusion.exclusion.data.IEConfigurationLine;
 import org.hibernate.criterion.Restrictions;
+import org.openbravo.base.exception.OBException;
 import org.openbravo.dal.service.OBCriteria;
 import org.openbravo.dal.service.OBDal;
+import org.openbravo.erpCommon.utility.OBMessageUtils;
 
+import java.util.Date;
 import java.util.List;
 
 public class ETBIUtils {
@@ -24,6 +27,12 @@ public class ETBIUtils {
         .createCriteria(IEConfigurationLine.class);
     linesCriteria.add(Restrictions.eq(IEConfigurationLine.PROPERTY_ETBIIEIECONFIGURATION, config));
     return linesCriteria;
+  }
+
+  public static void validatedates(Date dateto, Date datefrom){
+    if ((dateto != null && datefrom != null) && dateto.before(datefrom)) {
+      throw new OBException(OBMessageUtils.messageBD("etbiie_validatedate"));
+    }
   }
 }
 
