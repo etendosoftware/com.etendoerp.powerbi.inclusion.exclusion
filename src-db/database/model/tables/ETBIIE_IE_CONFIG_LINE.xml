@@ -69,6 +69,30 @@
         <default/>
         <onCreateDefault/>
       </column>
+      <column name="C_BPARTNER_ID" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <column name="C_BP_GROUP_ID" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <column name="C_BPARTNERSR_ID" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <column name="DATEFROM" primaryKey="false" required="false" type="TIMESTAMP" size="7" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <column name="DATETO" primaryKey="false" required="false" type="TIMESTAMP" size="7" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <column name="C_ELEMENTVALUE_ID" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
       <foreign-key foreignTable="AD_CLIENT" name="ETBIIE_CONF_CLIENT">
         <reference local="AD_CLIENT_ID" foreign="AD_CLIENT_ID"/>
       </foreign-key>
@@ -78,8 +102,20 @@
       <foreign-key foreignTable="AD_ORG" name="ETBIIE_CONF_ORG">
         <reference local="AD_ORG_ID" foreign="AD_ORG_ID"/>
       </foreign-key>
+      <foreign-key foreignTable="C_BP_GROUP" name="ETBIIE_IE_C_BPG">
+        <reference local="C_BP_GROUP_ID" foreign="C_BP_GROUP_ID"/>
+      </foreign-key>
       <foreign-key foreignTable="ETBIIE_IE_CONFIGURATION" name="ETBIIE_IE_LINE_CONF">
         <reference local="ETBIIE_IE_CONFIGURATION_ID" foreign="ETBIIE_IE_CONFIGURATION_ID"/>
+      </foreign-key>
+      <foreign-key foreignTable="C_BPARTNER" name="ETBIIE_LINE_BP">
+        <reference local="C_BPARTNER_ID" foreign="C_BPARTNER_ID"/>
+      </foreign-key>
+      <foreign-key foreignTable="C_BPARTNER" name="ETBIIE_LINE_BPSR">
+        <reference local="C_BPARTNERSR_ID" foreign="C_BPARTNER_ID"/>
+      </foreign-key>
+      <foreign-key foreignTable="C_ELEMENTVALUE" name="ETBIIE_LINE_EV">
+        <reference local="C_ELEMENTVALUE_ID" foreign="C_ELEMENTVALUE_ID"/>
       </foreign-key>
       <foreign-key foreignTable="C_GLITEM" name="ETBIIE_LINE_GLITEM">
         <reference local="C_GLITEM_ID" foreign="C_GLITEM_ID"/>
@@ -90,5 +126,6 @@
       <foreign-key foreignTable="M_PRODUCT" name="ETBIIE_LINE_PRODUCT">
         <reference local="M_PRODUCT_ID" foreign="M_PRODUCT_ID"/>
       </foreign-key>
+      <check name="DATEFROM_LE_DATETO"><![CDATA[DATEFROM <= DATETO]]></check>
     </table>
   </database>

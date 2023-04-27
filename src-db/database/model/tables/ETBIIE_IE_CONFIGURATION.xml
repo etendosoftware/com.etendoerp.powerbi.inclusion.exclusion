@@ -65,8 +65,31 @@
         <default/>
         <onCreateDefault/>
       </column>
+      <column name="ACCOUNTTYPE" primaryKey="false" required="false" type="VARCHAR" size="60" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <column name="ELEMENTLEVEL" primaryKey="false" required="false" type="VARCHAR" size="60" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <column name="DATEFROM" primaryKey="false" required="false" type="TIMESTAMP" size="7" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <column name="DATETO" primaryKey="false" required="false" type="TIMESTAMP" size="7" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
+      <column name="C_ELEMENT_ID" primaryKey="false" required="true" type="VARCHAR" size="32" autoIncrement="false">
+        <default/>
+        <onCreateDefault/>
+      </column>
       <foreign-key foreignTable="ETBIIE_IE_CONFIG_CAT" name="ETBIIE_IE_CONFIG_CAT_ID_FK">
         <reference local="ETBIIE_IE_CONFIG_CAT_ID" foreign="ETBIIE_IE_CONFIG_CAT_ID"/>
+      </foreign-key>
+      <foreign-key foreignTable="C_ELEMENT" name="ETBIIE_IE_CONFIG_EL">
+        <reference local="C_ELEMENT_ID" foreign="C_ELEMENT_ID"/>
       </foreign-key>
       <foreign-key foreignTable="AD_CLIENT" name="ETBIIE_IE_CONFIGURATION_CLI">
         <reference local="AD_CLIENT_ID" foreign="AD_CLIENT_ID"/>
@@ -74,5 +97,6 @@
       <foreign-key foreignTable="AD_ORG" name="ETBIIE_IE_CONFIGURATION_ORG">
         <reference local="AD_ORG_ID" foreign="AD_ORG_ID"/>
       </foreign-key>
+      <check name="DATEFROM_LE_DATETO"><![CDATA[DATEFROM <= DATETO]]></check>
     </table>
   </database>
