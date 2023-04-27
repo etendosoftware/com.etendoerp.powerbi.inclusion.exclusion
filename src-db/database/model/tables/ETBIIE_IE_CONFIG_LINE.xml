@@ -77,7 +77,7 @@
         <default/>
         <onCreateDefault/>
       </column>
-      <column name="C_BPARTNERSR_ID" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
+      <column name="SALESREPRESENTATIVE" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
@@ -112,7 +112,7 @@
         <reference local="C_BPARTNER_ID" foreign="C_BPARTNER_ID"/>
       </foreign-key>
       <foreign-key foreignTable="C_BPARTNER" name="ETBIIE_LINE_BPSR">
-        <reference local="C_BPARTNERSR_ID" foreign="C_BPARTNER_ID"/>
+        <reference local="SALESREPRESENTATIVE" foreign="C_BPARTNER_ID"/>
       </foreign-key>
       <foreign-key foreignTable="C_ELEMENTVALUE" name="ETBIIE_LINE_EV">
         <reference local="C_ELEMENTVALUE_ID" foreign="C_ELEMENTVALUE_ID"/>
