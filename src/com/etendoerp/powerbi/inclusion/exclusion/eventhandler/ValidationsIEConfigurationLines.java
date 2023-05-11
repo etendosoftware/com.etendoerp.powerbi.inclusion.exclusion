@@ -83,6 +83,18 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
             case CONFIGURATION_TYPE_DOCTYPE:
                 linesCriteria.add(Restrictions.eq(IEConfigurationLine.PROPERTY_DOCUMENTTYPE, line.getDocumentType()));
                 break;
+            case "BP":
+                linesCriteria.add(Restrictions.eq(IEConfigurationLine.PROPERTY_BUSINESSPARTNER, line.getBusinessPartner()));
+                break;
+            case "A":
+                linesCriteria.add(Restrictions.eq(IEConfigurationLine.PROPERTY_ACCOUNT, line.getAccount()));
+                break;
+            case "SR":
+                linesCriteria.add(Restrictions.eq(IEConfigurationLine.PROPERTY_SALESREPRESENTATIVE, line.getSalesRepresentative()));
+                break;
+            case "BPC":
+                linesCriteria.add(Restrictions.eq(IEConfigurationLine.PROPERTY_BUSINESSPARTNERCATEGORY, line.getBusinessPartnerCategory()));
+                break;
         }
         //and its id is different from the current line
         linesCriteria.add(Restrictions.ne(IEConfigurationLine.PROPERTY_ID, line.getId()));
@@ -110,6 +122,18 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
                 break;
             case CONFIGURATION_TYPE_DOCTYPE:
                 error = line.getDocumentType() == null;
+                break;
+            case "BP":
+                error = line.getBusinessPartner() == null;
+                break;
+            case "A":
+                error = line.getAccount() == null;
+                break;
+            case "SR":
+                error = line.getSalesRepresentative() == null;
+                break;
+            case "BPC":
+                error = line.getBusinessPartnerCategory() == null;
                 break;
         }
         if (error) {
