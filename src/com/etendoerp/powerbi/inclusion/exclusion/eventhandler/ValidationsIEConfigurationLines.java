@@ -18,6 +18,8 @@ import org.openbravo.erpCommon.utility.OBMessageUtils;
 import org.openbravo.service.db.DalConnectionProvider;
 
 import javax.enterprise.event.Observes;
+import java.util.Date;
+import java.util.Optional;
 
 public class ValidationsIEConfigurationLines extends EntityPersistenceEventObserver {
     public static final String CONFIGURATION_TYPE_DOCTYPE = "D";
@@ -98,6 +100,9 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
         }
         //and its id is different from the current line
         linesCriteria.add(Restrictions.ne(IEConfigurationLine.PROPERTY_ID, line.getId()));
+        Optional.ofNullable(line.getFromDate()).map(date -> linesCriteria.add(Restrictions.ge(IEConfigurationLine.PROPERTY_TODATE, date)));
+        Optional.ofNullable(line.getToDate()).map(date -> linesCriteria.add(Restrictions.lt(IEConfigurationLine.PROPERTY_FROMDATE, date)));
+
         if( !linesCriteria.list().isEmpty()) {
             throw new OBException(OBMessageUtils.messageBD("etbiie_repeatedLine"));
         }
@@ -140,6 +145,5 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
             throw new OBException(OBMessageUtils.messageBD("etbiie_LineNoValidData"));
         }
     }
-
 }
 
