@@ -22,8 +22,6 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
   private static Entity[] entities = {
       ModelProvider.getInstance().getEntity(IEConfiguration.ENTITY_NAME) };
   protected Logger logger = Logger.getLogger(this.getClass());
-  private static final String LANGUAGE = OBContext.getOBContext().getLanguage().getLanguage();
-  private static final ConnectionProvider conn = new DalConnectionProvider(false);
 
   @Override protected Entity[] getObservedEntities() {
     return entities;

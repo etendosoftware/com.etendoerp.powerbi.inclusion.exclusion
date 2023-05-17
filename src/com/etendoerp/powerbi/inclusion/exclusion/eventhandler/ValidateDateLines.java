@@ -16,7 +16,6 @@ import java.util.Date;
 public class ValidateDateLines extends EntityPersistenceEventObserver {
   private static Entity[] entities = {
       ModelProvider.getInstance().getEntity(IEConfigurationLine.ENTITY_NAME) };
-  private static ValidateDate validator = new ValidateDate();
   protected Logger logger = Logger.getLogger(this.getClass());
 
   @Override protected Entity[] getObservedEntities() {

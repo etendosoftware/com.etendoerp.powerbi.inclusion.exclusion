@@ -26,8 +26,6 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
     private static Entity[] entities = {
             ModelProvider.getInstance().getEntity(IEConfigurationLine.ENTITY_NAME) };
     protected Logger logger = Logger.getLogger(this.getClass());
-    private static final String LANGUAGE = OBContext.getOBContext().getLanguage().getLanguage();
-    private static final ConnectionProvider conn = new DalConnectionProvider(false);
 
     @Override protected Entity[] getObservedEntities() {
         return entities;
@@ -97,6 +95,8 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
             case "BPC":
                 linesCriteria.add(Restrictions.eq(IEConfigurationLine.PROPERTY_BUSINESSPARTNERCATEGORY, line.getBusinessPartnerCategory()));
                 break;
+            default:
+                break;    
         }
         //and its id is different from the current line
         linesCriteria.add(Restrictions.ne(IEConfigurationLine.PROPERTY_ID, line.getId()));
@@ -140,6 +140,8 @@ public class ValidationsIEConfigurationLines extends EntityPersistenceEventObser
             case "BPC":
                 error = line.getBusinessPartnerCategory() == null;
                 break;
+            default:
+                break;    
         }
         if (error) {
             throw new OBException(OBMessageUtils.messageBD("etbiie_LineNoValidData"));
