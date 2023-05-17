@@ -4,12 +4,14 @@ import com.etendoerp.powerbi.inclusion.exclusion.util.ETBIUtils;
 import org.apache.log4j.Logger;
 import org.openbravo.base.model.Entity;
 import org.openbravo.base.model.ModelProvider;
+import org.openbravo.base.model.Property;
 import org.openbravo.client.kernel.event.EntityNewEvent;
 import org.openbravo.client.kernel.event.EntityPersistenceEventObserver;
 import org.openbravo.client.kernel.event.EntityUpdateEvent;
 
 
 import javax.enterprise.event.Observes;
+import java.util.Date;
 
 public class ValidateDateLines extends EntityPersistenceEventObserver {
     private static Entity[] entities = {
@@ -27,7 +29,11 @@ public class ValidateDateLines extends EntityPersistenceEventObserver {
             return;
         }
         IEConfigurationLine config = (IEConfigurationLine) event.getTargetInstance();
-        ETBIUtils.validatedates(config.getToDate(), config.getFromDate());
+        final Property toDateProperty = config.getEntity().getProperty(IEConfigurationLine.PROPERTY_TODATE);
+        final Property fromDateProperty = config.getEntity().getProperty(IEConfigurationLine.PROPERTY_FROMDATE);
+        Date dateTo = (Date) event.getCurrentState(toDateProperty);
+        Date dateFrom = (Date) event.getCurrentState(fromDateProperty);
+        ETBIUtils.validatedates(dateTo, dateFrom);
     }
 
     public void onSave(@Observes EntityNewEvent event) {
@@ -35,6 +41,10 @@ public class ValidateDateLines extends EntityPersistenceEventObserver {
             return;
         }
         IEConfigurationLine config = (IEConfigurationLine) event.getTargetInstance();
-        ETBIUtils.validatedates(config.getToDate(), config.getFromDate());
+        final Property toDateProperty = config.getEntity().getProperty(IEConfigurationLine.PROPERTY_TODATE);
+        final Property fromDateProperty = config.getEntity().getProperty(IEConfigurationLine.PROPERTY_FROMDATE);
+        Date dateTo = (Date) event.getCurrentState(toDateProperty);
+        Date dateFrom = (Date) event.getCurrentState(fromDateProperty);
+        ETBIUtils.validatedates(dateTo, dateFrom);
     }
     }
