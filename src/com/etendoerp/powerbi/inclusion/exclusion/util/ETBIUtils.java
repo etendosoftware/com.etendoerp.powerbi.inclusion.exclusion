@@ -15,7 +15,9 @@ public class ETBIUtils {
   public static boolean configHasLines(IEConfiguration config) {
     return !getConfigLines(config).isEmpty();
   }
-
+  private ETBIUtils() {
+    
+  }
   private static List<IEConfigurationLine> getConfigLines (IEConfiguration config) {
 
     return getLinesCriteria(config).list();
