@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-  <database name="FUNCTION ETBI_CURRENCY_CONVERT_PREC">
-    <function name="ETBI_CURRENCY_CONVERT_PREC" type="NUMERIC" volatility="STABLE">
+  <database name="FUNCTION ETBIIE_CURRENCY_CONVERT_PREC">
+    <function name="ETBIIE_CURRENCY_CONVERT_PREC" type="NUMERIC" volatility="STABLE">
       <parameter name="p_amount" type="NUMERIC" mode="in">
         <default/>
       </parameter>
@@ -60,7 +60,7 @@ BEGIN
 EXCEPTION
 WHEN OTHERS THEN
   RETURN 0;
-END ETBI_CURRENCY_CONVERT_PREC
+END ETBIIE_CURRENCY_CONVERT_PREC
 ]]></body>
     </function>
   </database>

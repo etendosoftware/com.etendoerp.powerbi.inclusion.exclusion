@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-  <database name="FUNCTION ETBI_CURRENCY_CONVERT_RATE">
-    <function name="ETBI_CURRENCY_CONVERT_RATE" type="NUMERIC" volatility="STABLE">
+  <database name="FUNCTION ETBIIE_CURRENCY_CONVERT_RATE">
+    <function name="ETBIIE_CURRENCY_CONVERT_RATE" type="NUMERIC" volatility="STABLE">
       <parameter name="p_amount" type="NUMERIC" mode="in">
         <default/>
       </parameter>
@@ -43,7 +43,7 @@
 
 BEGIN
   IF (p_convrate IS NULL) THEN
-    RETURN ETBI_CURRENCY_CONVERT_PREC(p_amount, p_curfrom_id, p_curto_id, p_convdate, p_ratetype, p_client_id, p_org_id, 'A');
+    RETURN ETBIIE_CURRENCY_CONVERT_PREC(p_amount, p_curfrom_id, p_curto_id, p_convdate, p_ratetype, p_client_id, p_org_id, 'A');
   ELSE
     -- Return Amount
     IF(p_Amount=0 OR p_curfrom_id=p_curto_id) THEN
@@ -59,7 +59,7 @@ BEGIN
 EXCEPTION
 WHEN OTHERS THEN
   RETURN 0;
-END ETBI_CURRENCY_CONVERT_RATE
+END ETBIIE_CURRENCY_CONVERT_RATE
 ]]></body>
     </function>
   </database>

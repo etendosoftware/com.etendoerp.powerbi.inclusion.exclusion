@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-  <database name="FUNCTION ETBI_CONVERT_DOC_CURRENCY">
-    <function name="ETBI_CONVERT_DOC_CURRENCY" type="NUMERIC">
+  <database name="FUNCTION ETBIIE_CONVERT_DOC_CURRENCY">
+    <function name="ETBIIE_CONVERT_DOC_CURRENCY" type="NUMERIC">
       <parameter name="p_amount" type="NUMERIC" mode="in">
         <default/>
       </parameter>
@@ -48,7 +48,7 @@ BEGIN
     END;
 
     RETURN v_result;
-END ETBI_CONVERT_DOC_CURRENCY
+END ETBIIE_CONVERT_DOC_CURRENCY
 ]]></body>
     </function>
   </database>
