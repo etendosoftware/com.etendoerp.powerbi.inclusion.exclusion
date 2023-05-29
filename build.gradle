@@ -7,10 +7,10 @@
 */
 
 group          = "com.etendoerp"
-version        = "1.0.0-SNAPSHOT"
+version        = "1.0.0"
 description    = "It allows different types of configurations to be made from Etendo, to consider when creating BI reports. It contains concepts to Include/Exclude, as well as the configuration of different types of objectives to be analysed in BI."
 ext.artifact   = "powerbi.inclusion.exclusion"
-ext.repository = "https://repo.futit.cloud/repository/maven-snapshots"
+ext.repository = "https://maven.pkg.github.com/etendosoftware/com.etendoerp.etendobi.extensions"
 
 configurations {
     moduleDependencyContainer
@@ -27,7 +27,7 @@ publishing {
     }
     repositories {
         maven {
-            url "https://repo.futit.cloud/repository/maven-snapshots"
+            url "https://maven.pkg.github.com/etendosoftware/com.etendoerp.etendobi.extensions"
         }
     }
 }
@@ -43,13 +43,7 @@ sourceSets {
 repositories {
     mavenCentral()
     maven {
-        url "https://repo.futit.cloud/repository/maven-snapshots"
-    }
-    maven {
-        url "https://repo.futit.cloud/repository/maven-releases"
-    }
-    maven {
-        url "https://repo.futit.cloud/repository/maven-public-releases"
+        url "https://maven.pkg.github.com/etendosoftware/com.etendoerp.etendobi.extensions"
     }
     maven {
         url "https://repo.futit.cloud/repository/maven-public-jars"
