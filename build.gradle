@@ -1,0 +1,60 @@
+/**
+*   This file was generated automatically by the 'createModuleBuild' task.
+*   Created at: 2023-05-09T15:13:31.424739Z.
+*
+*   WARNING: Do not put your credentials directly in this file.
+*
+*/
+
+group          = "com.etendoerp"
+version        = "1.0.0"
+description    = "It allows different types of configurations to be made from Etendo, to consider when creating BI reports. It contains concepts to Include/Exclude, as well as the configuration of different types of objectives to be analysed in BI."
+ext.artifact   = "powerbi.inclusion.exclusion"
+ext.repository = "https://maven.pkg.github.com/etendosoftware/com.etendoerp.etendobi.extensions"
+
+configurations {
+    moduleDependencyContainer
+}
+
+publishing {
+    publications {
+        "com.etendoerp.powerbi.inclusion.exclusion"(MavenPublication) {
+            from components.java
+            groupId    = group
+            artifactId = artifact
+            version    = version
+        }
+    }
+    repositories {
+        maven {
+            url "https://maven.pkg.github.com/etendosoftware/com.etendoerp.etendobi.extensions"
+        }
+    }
+}
+
+sourceSets {
+    main {
+        resources {
+            srcDirs("etendo-resources")
+        }
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url "https://maven.pkg.github.com/etendosoftware/com.etendoerp.etendobi.extensions"
+    }
+    maven {
+        url "https://repo.futit.cloud/repository/maven-public-jars"
+    }
+}
+
+/**
+* Declare Java dependencies using 'implementation'
+* Ex: implementation "com.sun.mail:javax.mail:1.6.2"
+*/
+dependencies {
+   implementation('com.etendoerp.platform:etendo-core:[22.1.0, 23.2.0)')
+
+}

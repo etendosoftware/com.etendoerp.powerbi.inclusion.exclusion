@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
-  <database name="TABLE ETBI_IE_CONFIG_CAT">
-    <table name="ETBI_IE_CONFIG_CAT" primaryKey="ETBI_IE_CONFIG_CAT_KEY">
-      <column name="ETBI_IE_CONFIG_CAT_ID" primaryKey="true" required="true" type="VARCHAR" size="32" autoIncrement="false">
+  <database name="TABLE ETBIIE_IE_CONFIG_CAT">
+    <table name="ETBIIE_IE_CONFIG_CAT" primaryKey="ETBIIE_IE_CONFIG_CAT_KEY">
+      <column name="ETBIIE_IE_CONFIG_CAT_ID" primaryKey="true" required="true" type="VARCHAR" size="32" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
@@ -37,10 +37,10 @@
         <default/>
         <onCreateDefault/>
       </column>
-      <foreign-key foreignTable="AD_CLIENT" name="ETBI_IE_CONFIG_CAT_CLI">
+      <foreign-key foreignTable="AD_CLIENT" name="ETBIIE_IE_CONFIG_CAT_CLI">
         <reference local="AD_CLIENT_ID" foreign="AD_CLIENT_ID"/>
       </foreign-key>
-      <foreign-key foreignTable="AD_ORG" name="ETBI_IE_CONFIG_CAT_ORG">
+      <foreign-key foreignTable="AD_ORG" name="ETBIIE_IE_CONFIG_CAT_ORG">
         <reference local="AD_ORG_ID" foreign="AD_ORG_ID"/>
       </foreign-key>
     </table>
