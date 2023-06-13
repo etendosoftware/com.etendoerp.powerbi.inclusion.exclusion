@@ -31,12 +31,7 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
     if (!isValidEvent(event)) {
       return;
     }
-    //if the type of the configuration is null(using the method is empty from stringutils), the hasstring or the hasnumer or the hasyesno must be true
     IEConfiguration config = (IEConfiguration) event.getTargetInstance();
-    if (StringUtils.isEmpty(
-        config.getType()) && !config.isHasstring() && !config.isHasnumber() && !config.isHasyesno()) {
-      throw new OBException(OBMessageUtils.messageBD("etbiie_config_need_checks"));
-    }
     //cannot change the type of the configuration if exists lines.
     Property propType = event.getTargetInstance()
         .getEntity()
@@ -54,10 +49,6 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
       }
       //if the type of the configuration is null(using the method is empty from stringutils), the hasstring or the hasnumer or the hasyesno must be true
       IEConfiguration config = (IEConfiguration) event.getTargetInstance();
-      if (StringUtils.isEmpty(
-          config.getType()) && !config.isHasstring() && !config.isHasnumber() && !config.isHasyesno()) {
-        throw new OBException(OBMessageUtils.messageBD("etbiie_config_need_checks"));
-      }
     }
 
 }
