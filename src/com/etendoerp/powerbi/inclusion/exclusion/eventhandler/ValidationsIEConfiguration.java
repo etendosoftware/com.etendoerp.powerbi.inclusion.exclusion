@@ -20,10 +20,11 @@ import javax.enterprise.event.Observes;
 
 public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
   private static Entity[] entities = {
-      ModelProvider.getInstance().getEntity(IEConfiguration.ENTITY_NAME) };
+          ModelProvider.getInstance().getEntity(IEConfiguration.ENTITY_NAME)};
   protected Logger logger = Logger.getLogger(this.getClass());
 
-  @Override protected Entity[] getObservedEntities() {
+  @Override
+  protected Entity[] getObservedEntities() {
     return entities;
   }
 
@@ -34,22 +35,13 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
     IEConfiguration config = (IEConfiguration) event.getTargetInstance();
     //cannot change the type of the configuration if exists lines.
     Property propType = event.getTargetInstance()
-        .getEntity()
-        .getProperty(IEConfiguration.PROPERTY_TYPE);
+            .getEntity()
+            .getProperty(IEConfiguration.PROPERTY_TYPE);
     String prevType = (String) event.getPreviousState(propType);
     String currType = (String) event.getCurrentState(propType);
     if (!StringUtils.equalsIgnoreCase(prevType, currType) && ETBIUtils.configHasLines(config)) {
       throw new OBException(OBMessageUtils.messageBD("etbiie_noTypeChangeWithLines"));
     }
   }
-
-  public void onSave(@Observes EntityNewEvent event) {
-      if (!isValidEvent(event)) {
-        return;
-      }
-      //if the type of the configuration is null(using the method is empty from stringutils), the hasstring or the hasnumer or the hasyesno must be true
-      IEConfiguration config = (IEConfiguration) event.getTargetInstance();
-    }
-
 }
 
