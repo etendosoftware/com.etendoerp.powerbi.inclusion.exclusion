@@ -40,9 +40,7 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
             .getEntity()
             .getProperty(IEConfiguration.PROPERTY_TYPE);
     String currType = (String) event.getCurrentState(propType);
-    if (currType != null) {
-      notAccountTree(account, currType);
-    }
+    validateAccount(currType, account);
   }
 
   public void onUpdate(@Observes EntityUpdateEvent event) {
@@ -61,16 +59,18 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
             .getProperty(IEConfiguration.PROPERTY_TYPE);
     String prevType = (String) event.getPreviousState(propType);
     String currType = (String) event.getCurrentState(propType);
-    if (currType != null) {
-      notAccountTree(account, currType);
-    }
+    validateAccount(currType, account);
     if (!StringUtils.equalsIgnoreCase(prevType, currType) && ETBIUtils.configHasLines(config)) {
       throw new OBException(OBMessageUtils.messageBD("etbiie_noTypeChangeWithLines"));
     }
   }
-
-  public void notAccountTree (Element account, String type){
-    if (type.equals("A") && account == null) {
+  public void validateAccount (String currType, Element account){
+    if (currType != null) {
+      validateAccountTree(account, currType);
+    }
+  }
+  public void validateAccountTree (Element account, String type){
+    if (StringUtils.equalsIgnoreCase(type, "A") && account == null) {
       throw new OBException(OBMessageUtils.messageBD("etbiie_noTypeChangeWithLines"));
       }
     }
