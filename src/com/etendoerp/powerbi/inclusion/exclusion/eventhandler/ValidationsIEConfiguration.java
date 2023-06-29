@@ -73,7 +73,7 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
 
     public void validateAccountTree(Element account, String type) {
         if (StringUtils.equalsIgnoreCase(type, "A") && account == null) {
-            throw new OBException(OBMessageUtils.messageBD("etbiie_noTypeChangeWithLines"));
+            throw new OBException(OBMessageUtils.messageBD("etbiie_noAccountTree"));
         }
     }
 }
