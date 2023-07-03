@@ -9,6 +9,7 @@ import org.openbravo.base.model.Entity;
 import org.openbravo.base.model.ModelProvider;
 import org.openbravo.base.model.Property;
 import org.openbravo.client.kernel.event.EntityNewEvent;
+import org.openbravo.client.kernel.event.EntityPersistenceEvent;
 import org.openbravo.client.kernel.event.EntityPersistenceEventObserver;
 import org.openbravo.client.kernel.event.EntityUpdateEvent;
 import org.openbravo.erpCommon.utility.OBMessageUtils;
@@ -31,16 +32,7 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
         if (!isValidEvent(event)) {
             return;
         }
-        Property propAccount = event.getTargetInstance()
-                .getEntity()
-                .getProperty(IEConfiguration.PROPERTY_ACCOUNTTREE);
-        Element account = (Element) event.getCurrentState(propAccount);
-
-        Property propType = event.getTargetInstance()
-                .getEntity()
-                .getProperty(IEConfiguration.PROPERTY_TYPE);
-        String currType = (String) event.getCurrentState(propType);
-        validateAccount(currType, account);
+        validateAccount(event);
     }
 
     public void onUpdate(@Observes EntityUpdateEvent event) {
@@ -48,31 +40,27 @@ public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
             return;
         }
         IEConfiguration config = (IEConfiguration) event.getTargetInstance();
-        Property propAccount = event.getTargetInstance()
-                .getEntity()
-                .getProperty(IEConfiguration.PROPERTY_ACCOUNTTREE);
-        Element account = (Element) event.getCurrentState(propAccount);
-
+        validateAccount(event);
         //cannot change the type of the configuration if exists lines.
         Property propType = event.getTargetInstance()
                 .getEntity()
                 .getProperty(IEConfiguration.PROPERTY_TYPE);
         String prevType = (String) event.getPreviousState(propType);
         String currType = (String) event.getCurrentState(propType);
-        validateAccount(currType, account);
         if (!StringUtils.equalsIgnoreCase(prevType, currType) && ETBIUtils.configHasLines(config)) {
             throw new OBException(OBMessageUtils.messageBD("etbiie_noTypeChangeWithLines"));
         }
     }
-
-    public void validateAccount(String currType, Element account) {
-        if (currType != null) {
-            validateAccountTree(account, currType);
-        }
-    }
-
-    public void validateAccountTree(Element account, String type) {
-        if (StringUtils.equalsIgnoreCase(type, "A") && account == null) {
+    public void validateAccount(EntityPersistenceEvent event) {
+        Property propAccount = event.getTargetInstance()
+                .getEntity()
+                .getProperty(IEConfiguration.PROPERTY_ACCOUNTTREE);
+        Element account = (Element) event.getCurrentState(propAccount);
+        Property propType = event.getTargetInstance()
+                .getEntity()
+                .getProperty(IEConfiguration.PROPERTY_TYPE);
+        String currType = (String) event.getCurrentState(propType);
+        if (currType != null && account == null && StringUtils.equalsIgnoreCase(currType, "A")) {
             throw new OBException(OBMessageUtils.messageBD("etbiie_noAccountTree"));
         }
     }
