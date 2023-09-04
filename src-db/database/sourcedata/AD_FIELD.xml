@@ -89,7 +89,7 @@
 <!--14DF7282491643EEB39334C9FECF9FDA-->  <AD_ORG_ID><![CDATA[0]]></AD_ORG_ID>
 <!--14DF7282491643EEB39334C9FECF9FDA-->  <ISACTIVE><![CDATA[Y]]></ISACTIVE>
 <!--14DF7282491643EEB39334C9FECF9FDA-->  <NAME><![CDATA[Account Tree]]></NAME>
-<!--14DF7282491643EEB39334C9FECF9FDA-->  <DESCRIPTION><![CDATA[A unique identifier of the Account Tree.]]></DESCRIPTION>
+<!--14DF7282491643EEB39334C9FECF9FDA-->  <DESCRIPTION><![CDATA[A unique identifier of the Account Tree]]></DESCRIPTION>
 <!--14DF7282491643EEB39334C9FECF9FDA-->  <HELP><![CDATA[The Account Tree uniquely identifies the Account Tree, also known as Chart of Accounts, linked to the Accounting Schema.]]></HELP>
 <!--14DF7282491643EEB39334C9FECF9FDA-->  <ISCENTRALLYMAINTAINED><![CDATA[Y]]></ISCENTRALLYMAINTAINED>
 <!--14DF7282491643EEB39334C9FECF9FDA-->  <AD_TAB_ID><![CDATA[6533CEAAD96A434198CBA4D1D3E48412]]></AD_TAB_ID>
@@ -203,7 +203,7 @@
 <!--27E9CE69B50F489E9200BEE7D4865C65-->  <AD_ORG_ID><![CDATA[0]]></AD_ORG_ID>
 <!--27E9CE69B50F489E9200BEE7D4865C65-->  <ISACTIVE><![CDATA[Y]]></ISACTIVE>
 <!--27E9CE69B50F489E9200BEE7D4865C65-->  <NAME><![CDATA[Starting Date]]></NAME>
-<!--27E9CE69B50F489E9200BEE7D4865C65-->  <DESCRIPTION><![CDATA[A parameter stating the starting time range related to a specified request.]]></DESCRIPTION>
+<!--27E9CE69B50F489E9200BEE7D4865C65-->  <DESCRIPTION><![CDATA[A parameter stating the starting time range related to a specified request]]></DESCRIPTION>
 <!--27E9CE69B50F489E9200BEE7D4865C65-->  <HELP><![CDATA[The Date From indicates the starting date of a range.]]></HELP>
 <!--27E9CE69B50F489E9200BEE7D4865C65-->  <ISCENTRALLYMAINTAINED><![CDATA[Y]]></ISCENTRALLYMAINTAINED>
 <!--27E9CE69B50F489E9200BEE7D4865C65-->  <AD_TAB_ID><![CDATA[576EC6778CF04D34BEC765C04F21B97D]]></AD_TAB_ID>
@@ -421,7 +421,7 @@
 <!--65FE282645344991B371F11E8EA4BCB6-->  <AD_ORG_ID><![CDATA[0]]></AD_ORG_ID>
 <!--65FE282645344991B371F11E8EA4BCB6-->  <ISACTIVE><![CDATA[Y]]></ISACTIVE>
 <!--65FE282645344991B371F11E8EA4BCB6-->  <NAME><![CDATA[Starting Date]]></NAME>
-<!--65FE282645344991B371F11E8EA4BCB6-->  <DESCRIPTION><![CDATA[A parameter stating the starting time range related to a specified request.]]></DESCRIPTION>
+<!--65FE282645344991B371F11E8EA4BCB6-->  <DESCRIPTION><![CDATA[A parameter stating the starting time range related to a specified request]]></DESCRIPTION>
 <!--65FE282645344991B371F11E8EA4BCB6-->  <HELP><![CDATA[The Date From indicates the starting date of a range.]]></HELP>
 <!--65FE282645344991B371F11E8EA4BCB6-->  <ISCENTRALLYMAINTAINED><![CDATA[Y]]></ISCENTRALLYMAINTAINED>
 <!--65FE282645344991B371F11E8EA4BCB6-->  <AD_TAB_ID><![CDATA[6533CEAAD96A434198CBA4D1D3E48412]]></AD_TAB_ID>
@@ -559,7 +559,7 @@
 <!--71D61102114D4B1CA4CEC8EC9CCF5633-->  <ISACTIVE><![CDATA[Y]]></ISACTIVE>
 <!--71D61102114D4B1CA4CEC8EC9CCF5633-->  <NAME><![CDATA[Account Type]]></NAME>
 <!--71D61102114D4B1CA4CEC8EC9CCF5633-->  <DESCRIPTION><![CDATA[Indicates the type of account]]></DESCRIPTION>
-<!--71D61102114D4B1CA4CEC8EC9CCF5633-->  <HELP><![CDATA[Valid account types are A - Asset, E - Expense, L - Liability, O- Owner Equity, R -Revenue and M- Memo.  The account type is used to determine what taxes, if any are applicable, validating payables and receivables for business partners.  Note:  Memo account amounts are ignored when checking for balancing]]></HELP>
+<!--71D61102114D4B1CA4CEC8EC9CCF5633-->  <HELP><![CDATA[Valid account types are A - Asset, E - Expense, L - Liability, O - Owner Equity, R - Revenue and M - Memo.  The account type is used to determine what taxes - if any - are applicable, validating payables and receivables for business partners.  Note:  Memo account amounts are ignored when checking for balancing]]></HELP>
 <!--71D61102114D4B1CA4CEC8EC9CCF5633-->  <ISCENTRALLYMAINTAINED><![CDATA[Y]]></ISCENTRALLYMAINTAINED>
 <!--71D61102114D4B1CA4CEC8EC9CCF5633-->  <AD_TAB_ID><![CDATA[6533CEAAD96A434198CBA4D1D3E48412]]></AD_TAB_ID>
 <!--71D61102114D4B1CA4CEC8EC9CCF5633-->  <AD_COLUMN_ID><![CDATA[61628096E7D14E8C95009078CBDDD151]]></AD_COLUMN_ID>
@@ -615,7 +615,7 @@
 <!--7AF31A4CAC1149B086621B9B9983A950-->  <AD_ORG_ID><![CDATA[0]]></AD_ORG_ID>
 <!--7AF31A4CAC1149B086621B9B9983A950-->  <ISACTIVE><![CDATA[Y]]></ISACTIVE>
 <!--7AF31A4CAC1149B086621B9B9983A950-->  <NAME><![CDATA[Business Partner Category]]></NAME>
-<!--7AF31A4CAC1149B086621B9B9983A950-->  <DESCRIPTION><![CDATA[A classification of business partners based on defined similarities.]]></DESCRIPTION>
+<!--7AF31A4CAC1149B086621B9B9983A950-->  <DESCRIPTION><![CDATA[A classification of business partners based on defined similarities]]></DESCRIPTION>
 <!--7AF31A4CAC1149B086621B9B9983A950-->  <HELP><![CDATA[A way of grouping business partners together for classification and reporting purposes. Provides a method of defining certain defaults to be used when opening new business partners.]]></HELP>
 <!--7AF31A4CAC1149B086621B9B9983A950-->  <ISCENTRALLYMAINTAINED><![CDATA[Y]]></ISCENTRALLYMAINTAINED>
 <!--7AF31A4CAC1149B086621B9B9983A950-->  <AD_TAB_ID><![CDATA[576EC6778CF04D34BEC765C04F21B97D]]></AD_TAB_ID>
@@ -729,8 +729,8 @@
 <!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <AD_ORG_ID><![CDATA[0]]></AD_ORG_ID>
 <!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <ISACTIVE><![CDATA[Y]]></ISACTIVE>
 <!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <NAME><![CDATA[Name]]></NAME>
-<!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <DESCRIPTION><![CDATA[A non-unique identifier for a record/document often used as a search tool.]]></DESCRIPTION>
-<!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <HELP><![CDATA[A more descriptive identifier (that does need to be unique) of a record/document that is used as a default search option along with the search key (that is unique and mostly shorter). It is up to 60 characters in length.]]></HELP>
+<!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <DESCRIPTION><![CDATA[A non-unique identifier for a payment type]]></DESCRIPTION>
+<!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <HELP><![CDATA[A descriptive identifier of a payment type that is used as a default search option along with the search key.]]></HELP>
 <!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <ISCENTRALLYMAINTAINED><![CDATA[Y]]></ISCENTRALLYMAINTAINED>
 <!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <AD_TAB_ID><![CDATA[6533CEAAD96A434198CBA4D1D3E48412]]></AD_TAB_ID>
 <!--87B9F7FA1E434DDDA2980A4DA0A0D9AD-->  <AD_COLUMN_ID><![CDATA[ECDD70D5D71045918CFBE00822558757]]></AD_COLUMN_ID>
