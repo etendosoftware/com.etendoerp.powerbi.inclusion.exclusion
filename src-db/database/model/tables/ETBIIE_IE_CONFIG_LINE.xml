@@ -49,11 +49,11 @@
         <default/>
         <onCreateDefault/>
       </column>
-      <column name="NUMBER" primaryKey="false" required="false" type="DECIMAL" autoIncrement="false">
+      <column name="NUMBER_VALUE" primaryKey="false" required="false" type="DECIMAL" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
-      <column name="STRING" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
+      <column name="STRING_VALUE" primaryKey="false" required="false" type="VARCHAR" size="32" autoIncrement="false">
         <default/>
         <onCreateDefault/>
       </column>
@@ -126,6 +126,6 @@
       <foreign-key foreignTable="M_PRODUCT" name="ETBIIE_LINE_PRODUCT">
         <reference local="M_PRODUCT_ID" foreign="M_PRODUCT_ID"/>
       </foreign-key>
-      <check name="DATEFROM_LE_DATETO"><![CDATA[DATEFROM <= DATETO]]></check>
+      <check name="CONFLINE_DATEFROM_LE_DATETO"><![CDATA[DATEFROM <= DATETO]]></check>
     </table>
   </database>
