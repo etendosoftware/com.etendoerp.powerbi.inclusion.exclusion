@@ -97,6 +97,6 @@
       <foreign-key foreignTable="AD_ORG" name="ETBIIE_IE_CONFIGURATION_ORG">
         <reference local="AD_ORG_ID" foreign="AD_ORG_ID"/>
       </foreign-key>
-      <check name="DATEFROM_LE_DATETO"><![CDATA[DATEFROM <= DATETO]]></check>
+      <check name="CONF_DATEFROM_LE_DATETO"><![CDATA[DATEFROM <= DATETO]]></check>
     </table>
   </database>
