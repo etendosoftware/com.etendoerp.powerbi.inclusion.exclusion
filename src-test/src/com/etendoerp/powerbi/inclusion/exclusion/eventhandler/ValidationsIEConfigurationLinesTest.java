@@ -53,6 +53,8 @@ import com.etendoerp.powerbi.inclusion.exclusion.util.ETBIUtils;
 @MockitoSettings(strictness = Strictness.LENIENT)
 public class ValidationsIEConfigurationLinesTest {
 
+  private static final String REPEATED_LINE_MESSAGE = "Repeated line found";
+
   private ValidationsIEConfigurationLines validator;
 
   @Mock
@@ -189,10 +191,10 @@ public class ValidationsIEConfigurationLinesTest {
       mockedUtils.when(() -> ETBIUtils.getLinesCriteria(any())).thenReturn(criteria);
       when(criteria.list()).thenReturn(existingLines);
 
-      mockedMessageUtils.when(() -> OBMessageUtils.messageBD("etbiie_repeatedLine")).thenReturn("Repeated line found");
+      mockedMessageUtils.when(() -> OBMessageUtils.messageBD("etbiie_repeatedLine")).thenReturn(REPEATED_LINE_MESSAGE);
 
       OBException exception = assertThrows(OBException.class, () -> validator.onSave(newEvent));
-      assertEquals("Repeated line found", exception.getMessage());
+      assertEquals(REPEATED_LINE_MESSAGE, exception.getMessage());
     }
   }
 
@@ -368,10 +370,10 @@ public class ValidationsIEConfigurationLinesTest {
       mockedUtils.when(() -> ETBIUtils.getLinesCriteria(any())).thenReturn(criteria);
       when(criteria.list()).thenReturn(existingLines);
 
-      mockedMessageUtils.when(() -> OBMessageUtils.messageBD("etbiie_repeatedLine")).thenReturn("Repeated line found");
+      mockedMessageUtils.when(() -> OBMessageUtils.messageBD("etbiie_repeatedLine")).thenReturn(REPEATED_LINE_MESSAGE);
 
       OBException exception = assertThrows(OBException.class, () -> validator.onUpdate(updateEvent));
-      assertEquals("Repeated line found", exception.getMessage());
+      assertEquals(REPEATED_LINE_MESSAGE, exception.getMessage());
     }
   }
 }
