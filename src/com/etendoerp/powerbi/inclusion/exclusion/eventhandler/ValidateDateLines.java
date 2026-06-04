@@ -10,7 +10,7 @@ import org.openbravo.client.kernel.event.EntityNewEvent;
 import org.openbravo.client.kernel.event.EntityPersistenceEventObserver;
 import org.openbravo.client.kernel.event.EntityUpdateEvent;
 
-import javax.enterprise.event.Observes;
+import jakarta.enterprise.event.Observes;
 import java.util.Date;
 
 public class ValidateDateLines extends EntityPersistenceEventObserver {

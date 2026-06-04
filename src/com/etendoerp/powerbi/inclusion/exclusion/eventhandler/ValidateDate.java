@@ -9,7 +9,7 @@ import org.openbravo.client.kernel.event.EntityNewEvent;
 import org.openbravo.client.kernel.event.EntityPersistenceEventObserver;
 import org.openbravo.client.kernel.event.EntityUpdateEvent;
 
-import javax.enterprise.event.Observes;
+import jakarta.enterprise.event.Observes;
 
 import com.etendoerp.powerbi.inclusion.exclusion.util.ETBIUtils;
 

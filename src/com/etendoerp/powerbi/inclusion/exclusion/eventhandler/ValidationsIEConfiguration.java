@@ -16,7 +16,7 @@ import org.openbravo.erpCommon.utility.OBMessageUtils;
 import org.openbravo.model.financialmgmt.accounting.coa.Element;
 
 
-import javax.enterprise.event.Observes;
+import jakarta.enterprise.event.Observes;
 
 public class ValidationsIEConfiguration extends EntityPersistenceEventObserver {
     private static Entity[] entities = {
