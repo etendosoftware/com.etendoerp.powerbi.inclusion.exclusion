@@ -10,7 +10,7 @@ group          = "com.etendoerp"
 version        = "3.0.0"
 description    = "It allows different types of configurations to be made from Etendo, to consider when creating BI reports. It contains concepts to Include/Exclude, as well as the configuration of different types of objectives to be analysed in BI."
 ext.artifact   = "powerbi.inclusion.exclusion"
-ext.repository = "https://maven.pkg.github.com/etendosoftware/com.etendoerp.etendobi.extensions"
+ext.repository = "https://repo.futit.cloud/repository/maven-snapshots"
 
 configurations {
     moduleDependencyContainer
@@ -27,7 +27,7 @@ publishing {
     }
     repositories {
         maven {
-            url "https://maven.pkg.github.com/etendosoftware/com.etendoerp.etendobi.extensions"
+            url "https://repo.futit.cloud/repository/maven-snapshots"
         }
     }
 }
@@ -43,7 +43,7 @@ sourceSets {
 repositories {
     mavenCentral()
     maven {
-        url "https://maven.pkg.github.com/etendosoftware/com.etendoerp.etendobi.extensions"
+        url "https://repo.futit.cloud/repository/maven-snapshots"
     }
     maven {
         url "https://repo.futit.cloud/repository/maven-public-jars"
@@ -55,6 +55,6 @@ repositories {
 * Ex: implementation "com.sun.mail:javax.mail:1.6.2"
 */
 dependencies {
-    implementation('com.etendoerp.platform:etendo-core:[26.1.0,26.2.0)')
+    implementation('com.etendoerp.platform:etendo-core:[27.1.0,27.2.0)')
 
 }
